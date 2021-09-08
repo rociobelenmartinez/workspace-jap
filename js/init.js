@@ -39,9 +39,20 @@ var getJSONData = function(url){
         return result;
     });
 }
+// this function is for print the name in the nav bar
+function printName(){
+  let user =localStorage.getItem("username");
+  if(user!=undefined && user!=""){
+    document.getElementById("usernav").innerHTML = user;
+  }
+  else{
+    window.location.href = "index.html"
+  }
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+printName();
 });
