@@ -62,20 +62,37 @@
           </div>
         </dd>
         <!--Comentarios-->
-        <dt>Comentarios</dt>
+        <div class="p-3 mb-2 bg-dark text-white">Comentarios:</div>
         <dd>
           <div id="productJsonComments">
 
           </div>
         </dd>
       </dl>
+      <!--Aqui iría form para agregar comentrios-->
+      <div class=container>
+        <form>
+          <div>
+            <!--<label for="comments">Tu comentario:</label> <br> -->
+            <div class="p-3 mb-2 bg-dark text-white">Tu comentario:</div>
+            <textarea name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
+             
+              </textarea>
+          </div>
+         
+          <label for="cal">Calificación: (Entre 0 a 5):</label>
+          <input type="range" id="calificacion" name="cal" min="0" max="5">
+         
+        </form>
+        <button id=comtButton type="button">Enviar</button>
+
+      </div>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver listado</a>
     </div>
     
   </main>
  
- <!--Aqui pondria un textarea para dejar comentarios con id para poder darle estilo en css-->
-
+ 
 
   <footer class="text-muted">
     <div class="container">
