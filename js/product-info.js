@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
-//Funcion de mostrar ocmentarios
+//This function show the json comments
 var jsonComments = [];
 
 function showProductsJsonComments(){
