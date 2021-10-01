@@ -1,4 +1,7 @@
 var product = {};
+let productos =[];
+let infoProducto ={};
+let relacionado = []; 
 
 function showProdImages(array){
 
@@ -19,10 +22,58 @@ function showProdImages(array){
     }
 }
 
+/*mostrar los productos relacionados de la url "https://japdevdep.github.io/ecommerce-api/product/5678.json"*/
+
+//Esta funcion muestra la info de los productos relacionados
+function mostrarRelacionados(array){
+
+    let htmlContentToAppend = "";
+    for(let i = 0; i< array.length;i++){
+        let relacionado = array[i];
+        //html +=`<div>${productos[relacionado].name} </div>`
+        //html +=`<div>${productos[relacionado].cost} </div>`
+        htmlContentToAppend += ` 
+
+        <div class="card" style="width: 18rem;">
+           <img src=" `+ productos[relacionado].imgSrc + ` " alt=" ` + ` class="card-img-top">
+           <div class="card-body">
+              <p class="card-text">`+ productos[relacionado].name +` </p> <hr>
+              <p class="card-text">`+  productos[relacionado].cost  + ` </p>
+              
+              
+            </div>
+            
+
+        </div>
+        <div class="p-3"></div>
+        
+          
+        
+
+        
+        
+        `
+        
+     
+
+    }
+
+    document.getElementById("relacionados").innerHTML = htmlContentToAppend;
+
+}
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+
+            jsonComments = resultObj.data; 
+            showProductsJsonComments(jsonComments);
+        }
+    });
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
@@ -33,16 +84,25 @@ document.addEventListener("DOMContentLoaded", function(e){
             let productCostHTML = document.getElementById("productCost");
             let productSoldCountHTML = document.getElementById("productSoldCount");
             let productCategoryHTML = document.getElementById("productCategory");
+            
         
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
             productCostHTML.innerHTML = product.cost + product.currency;
             productSoldCountHTML.innerHTML = product.soldCount;
             productCategoryHTML.innerHTML = product.category;
+          
 
             //Muestro las imagenes en forma de galería
             showProdImages(product.images);
+        getJSONData(PRODUCTS_URL).then(function(resultObj2){
+            productos = resultObj2.data
+            mostrarRelacionados(product.relatedProducts);
+        })
+
+        
         }
+
     });
 });
 //This function show the json comments
@@ -88,13 +148,13 @@ function showProductsJsonComments(){
 
 
 
-    document.addEventListener("DOMContentLoaded", function(e){
-        getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
-            if (resultObj.status === "ok"){
 
-                jsonComments = resultObj.data; 
-                showProductsJsonComments(jsonComments);
-            }
-        });
-        
-    });
+
+
+
+
+
+
+
+
+
