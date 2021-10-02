@@ -46,13 +46,14 @@ function mostrarRelacionados(array){
 
         </div>
         <div class="p-3"></div>
+        `
         
           
         
 
         
         
-        `
+        
         
      
 

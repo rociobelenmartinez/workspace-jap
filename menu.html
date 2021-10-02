@@ -14,17 +14,29 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
+
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a id= "usernav" class="py-2 d-none d-md-inline-block" href="#"></a> 
-         <!--add this usarnav in all the pages that is required-->
-      </div>
-    </nav>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a id= "usernav" class="py-2 d-none d-md-inline-block" href="#"></a> 
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <a class="dropdown-item" href="cart.html">Carrito</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" onclick="logOut();" href="#">Cerrar sesión</a> 
+            
+          </div>
+        </div>
+        
+      </div> 
+    </nav> 
+
     <main role="main">
       <section class="jumbotron text-center">
         <div class="m-5">
