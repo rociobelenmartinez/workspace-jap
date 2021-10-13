@@ -30,8 +30,6 @@ function mostrarRelacionados(array){
     let htmlContentToAppend = "";
     for(let i = 0; i< array.length;i++){
         let relacionado = array[i];
-        //html +=`<div>${productos[relacionado].name} </div>`
-        //html +=`<div>${productos[relacionado].cost} </div>`
         htmlContentToAppend += ` 
 
         <div class="card" style="width: 18rem;">
